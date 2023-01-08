@@ -1,0 +1,6 @@
+build
+vendor
+test/support/*
+doc
+.gdbinit
+.tiide.el
