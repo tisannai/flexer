@@ -217,6 +217,18 @@ void fl_resize( fl_t fl, fl_size_t new_size );
 
 
 /**
+ * Add item to container end.
+ *
+ * If Flexer data must be already allocated.
+ *
+ * @param fl   Flexer.
+ * @param item Item to add.
+ * @param size Number of bytes to add.
+ */
+void fl_add( fl_t fl, const fl_d item, fl_size_t size );
+
+
+/**
  * Push (add) item to container end.
  *
  * If Flexer data is NULL, Flexer is created and item is added. Flexer
@@ -226,7 +238,7 @@ void fl_resize( fl_t fl, fl_size_t new_size );
  * @param item Item to add.
  * @param size Number of bytes to add.
  */
-void fl_push( fl_t fl, fl_d item, fl_size_t size );
+void fl_push( fl_t fl, const fl_d item, fl_size_t size );
 
 
 /**
@@ -238,6 +250,15 @@ void fl_push( fl_t fl, fl_d item, fl_size_t size );
  * @return Popped (removed) item (or NULL).
  */
 fl_d fl_pop( fl_t fl, fl_size_t size );
+
+
+/**
+ * Get allocation from container.
+ *
+ * @param fl   Flexer.
+ * @param size Number of bytes to allocate.
+ */
+fl_d fl_alloc( fl_t fl, fl_size_t size );
 
 
 /**

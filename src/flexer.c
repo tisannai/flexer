@@ -125,7 +125,17 @@ void fl_resize( fl_t fl, fl_size_t new_size )
 }
 
 
-void fl_push( fl_t fl, fl_d item, fl_size_t size )
+void fl_add( fl_t fl, const fl_d item, fl_size_t size )
+{
+    if ( fl->used + size > fm_size( fl ) ) {
+        fl_resize( fl, fm_size( fl ) * 2 );
+    }
+    memcpy( (char*)( fl->data ) + fl->used, item, size );
+    fl->used += size;
+}
+
+
+void fl_push( fl_t fl, const fl_d item, fl_size_t size )
 {
     if ( fl->data == NULL ) {
         fl_new( fl );
@@ -147,6 +157,25 @@ fl_d fl_pop( fl_t fl, fl_size_t size )
     } else {
         return NULL;
     }
+}
+
+
+fl_d fl_alloc( fl_t fl, fl_size_t size )
+{
+    fl_d ret;
+
+//     if ( fl->data == NULL ) {
+//         fl_new( fl );
+//     }
+
+    if ( fl->used + size > fm_size( fl ) ) {
+        fl_resize( fl, fm_size( fl ) * 2 );
+    }
+//     memcpy( (char*)( fl->data ) + fl->used, item, size );
+    ret = (char*)( fl->data ) + fl->used;
+    fl->used += size;
+
+    return ret;
 }
 
 

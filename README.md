@@ -1,7 +1,7 @@
 # Flexer - Growing container for data
 
 Flexer is linear container for storing data. The storage is
-continous. Storage grows when added data does not fit to the current
+continuous. Storage grows when added data does not fit to the current
 allocation. Reservation is doubled at resizing.
 
 Flexer struct:

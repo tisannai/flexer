@@ -103,9 +103,10 @@
   :release_compiler:
     :executable: gcc
     :arguments:
+      - -DNDEBUG
       - ${1}
       - -Wall
-#      - -std=c11
+#       - -std=c11
 #       - -g
       - -O2
       - -fPIC
